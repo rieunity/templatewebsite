@@ -1,0 +1,53 @@
+--- 
+layout: default 
+---
+<div class="container">
+  <div class="row">
+    <div class="blog-post col-sm-8">
+      <h2 class="blog-post-title" itemprop="name headline">{{ page.title | escape }}</h2>
+
+      <p class="blog-post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %} {{ page.date | date: date_format }}
+        </time>
+        {% if page.author %}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+        {% endif %}</p>
+
+      {{ content }}
+    </div>
+
+    <div class="col-sm-3 offset-sm-1 blog-sidebar">
+      <div class="sidebar-module">
+        <h3>Mathematics</h3>
+        <ol class="list-unstyled">
+
+          {% for post in site.categories.math %}
+          <li>
+            <a class="post-link post-blog-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </li>
+          {% endfor %}
+
+        </ol>
+        <h3>Computer Science</h3>
+        <ol class="list-unstyled">
+          {% for post in site.categories.computer %}
+          <li>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </li>
+          {% endfor %}
+        </ol>
+        <h3>Physics</h3>
+        <ol class="list-unstyled">
+          {% for post in site.categories.physics %}
+          <li>
+            <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if site.disqus.shortname %} {% include disqus_comments.html %} {% endif %}

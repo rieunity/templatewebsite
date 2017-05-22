@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/assets/img/favicon.ico">
+
+  <title>BlogHome</title>
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/assets/css/bloghome.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="nav">
+        <a class="nav-link" href="/index.html">Home</a>
+        <a class="nav-link active" href="#">Blogs</a>
+        <a class="nav-link" href="/blogcontact.html">Contact</a>
+        <a class="nav-link" href="/blogabout.html">About</a>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default btn-bloghome-header"><a class="no-underscore" href="#math">Mathematics</a></button>
+      <button type="button" class="btn btn-default btn-bloghome-header"><a class="no-underscore" href="#computers">Computer Science</a></button>
+      <button type="button" class="btn btn-default btn-bloghome-header"><a class="no-underscore" href="#physics">Physics</a></button>
+    </div>
+    <h1 class="page-heading">Mathematics</h1><a name="math"></a>
+    <ol class="list-unstyled">
+      {% for post in site.categories.math %}
+      <h5><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h5>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      </br>
+      <div class="excerptsize">{{ post.excerpt }}</div>
+      {% endfor %}
+    </ol>
+    <h1 class="page-heading">Computer Science</h1><a name="computers"></a>
+    <ol class="list-unstyled">
+      {% for post in site.categories.computer %}
+      <h5><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h5>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      </br>
+      <div class="excerptsize">{{ post.excerpt }}</div>
+      {% endfor %}
+    </ol>
+    <h1 class="page-heading">Physics</h1><a name="physics"></a>
+    <ol class="list-unstyled">
+      {% for post in site.categories.physics %}
+      <h5><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h5>
+      {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      </br>
+      <div class="excerptsize">{{ post.excerpt }}</div>
+      {% endfor %}
+    </ol>
+
+  </div>
+
+  {{ content }}
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
