@@ -20,7 +20,7 @@ It is an example of definition environment.
 ```
 它的样式由下面的css代码控制
 ```css
-.theorem, .definition, .property, .exercise{
+.theorem, .definition, .proposition, .exercise{
     border: thin solid #000;
     padding: 10px;
     margin-left:20px;
@@ -63,11 +63,11 @@ function mathEnvironment() {
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }
-            if (element == "property") {
+            if (element == "proposition") {
             property ++;
             var placeholder = document.createElement("span");
             placeholder.style.fontWeight = "bold";
-            var desctext = document.createTextNode("Property "+ property+" ");
+            var desctext = document.createTextNode("Proposition "+ proposition+" ");
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }

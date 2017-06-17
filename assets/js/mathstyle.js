@@ -1,4 +1,3 @@
-
 function addLoadEvent(func) {
     var oldonload = window.onload;
     if (typeof window.onload != 'function') {
@@ -15,9 +14,6 @@ function mathEnvironment() {
     var quoteblocks = document.getElementsByTagName("blockquote");
     var len = quoteblocks.length;
     var theorem = 0;
-    var property = 0;
-    var definition = 0;
-    var exercise = 0;
     for (var i = 0; i < len; i++) {
         var element = quoteblocks[i].getAttribute("class");
         if (element == "theorem") {
@@ -28,30 +24,37 @@ function mathEnvironment() {
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }
-            if (element == "property") {
-            property ++;
+            if (element == "proposition") {
+            theorem ++;
             var placeholder = document.createElement("span");
             placeholder.style.fontWeight = "bold";
-            var desctext = document.createTextNode("Property "+ property+" ");
+            var desctext = document.createTextNode("Proposition "+ theorem +" ");
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }
             if (element == "definition") {
-            definition ++;
+            theorem ++;
             var placeholder = document.createElement("span");
             placeholder.style.fontWeight = "bold";
-            var desctext = document.createTextNode("Definition "+ definition+" ");
+            var desctext = document.createTextNode("Definition "+ theorem +" ");
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }
             if (element == "exercise") {
-            exercise ++;
+            theorem ++;
             var placeholder = document.createElement("span");
             placeholder.style.fontWeight = "bold";
-            var desctext = document.createTextNode("Exercise "+ exercise+" ");
+            var desctext = document.createTextNode("Exercise "+ theorem +" ");
             placeholder.appendChild(desctext);
             quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
         }
+            if (element == "proof") {
+            var placeholder = document.createElement("span");
+            placeholder.style.fontStyle = "italic";
+            var desctext = document.createTextNode("Proof: ");
+            placeholder.appendChild(desctext);
+            quoteblocks[i].insertBefore(placeholder, quoteblocks[i].firstChild);
+            }
     }
 }
 
